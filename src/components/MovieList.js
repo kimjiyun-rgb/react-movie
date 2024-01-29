@@ -2,27 +2,33 @@
 import { useState, useEffect } from 'react';
 import styles from './MovieList.module.css';
 
-const MovieList = () => {
+const MovieList = () =>
+{
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchMovies = async () => {
+  const fetchMovies = async () =>
+  {
     setIsLoading(true);
-    try {
+    try
+    {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=cba95d401a14ab806ffc13a5052aab89&query=${searchTerm}`
       );
 
-      if (!response.ok) {
+      if (!response.ok)
+      {
         throw new Error('Network response was not ok');
       }
 
       const data = await response.json();
       setMovies(data.results);
-    } catch (error) {
+    } catch (error)
+    {
       console.error('Error fetching data:', error);
-    } finally {
+    } finally
+    {
       setIsLoading(false);
     }
   };
@@ -62,5 +68,6 @@ const MovieList = () => {
     </div>
   );
 };
+
 
 export default MovieList;

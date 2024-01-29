@@ -1,4 +1,5 @@
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie }) =>
+{
   return (
     <li>
       <img
